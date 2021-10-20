@@ -1,0 +1,17 @@
+<div class="float-end" style="padding: 0 30px 0 0;">
+    <a type="button" class="btn btn-outline-success" [routerLink]="['/album', albumId]">Go back to Album</a>
+</div>
+
+<h2>Upload Photo</h2>
+
+<div style="width:500px;margin: auto;padding: 20px;">
+    <div class="mb-3">
+        <label> Photo Name </label>
+        <input type="text" class="form-control" [(ngModel)]="photoName" placeholder="Enter Photo Name">
+    </div>
+    <div class="mb-3">
+        <label> Cover Photo </label><br>
+        <input type="file" class="form-control-file" [disabled]="!photoName" (change)="uploadPhoto($event.target)">
+
+    </div>
+</div>

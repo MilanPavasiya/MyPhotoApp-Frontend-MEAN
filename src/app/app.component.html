@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">My Photo Application</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/albums/recent']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/albums']">Albums</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="float-end" style="padding: 0 30px 0 0;" *ngIf="userService.user | async">
+    <a class="btn btn-outline-danger" (click)="logout()">Logout</a>
+  </div>
+</nav>
+
+<div *ngFor="let message of messageService.messages">
+  <div class="alert alert-danger" role="alert">
+    {{message}}
+  </div>
+</div>
+<div *ngIf="messageService.messages.length">
+  <button type="button" class="btn btn-dark" (click)="clearMessages()">Clear</button>
+</div>
+<router-outlet></router-outlet>

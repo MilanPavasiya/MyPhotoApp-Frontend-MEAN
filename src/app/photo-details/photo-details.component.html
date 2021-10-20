@@ -1,0 +1,38 @@
+<h2>Photos:</h2><br>
+
+
+<button type="button" class="btn btn-primary" (click)="makeProfilePhoto()">Make This Profile Photo</button><br>
+<button type="button" class="btn btn-secondary" (click)="makeCoverPhoto()">Make This Album Cover</button>
+
+
+<div *ngIf="photo" style="width: 450px;margin: auto;padding: auto;">
+
+    <img [src]="photo[0].photoUrl" class="rounded" width="450px" />
+</div>
+
+<h2>Comments:</h2>
+<div style="width: 600px;margin: auto;">
+    <div class="form-group">
+        <textarea class="form-control" rows="3" [(ngModel)]="newComment"></textarea>
+    </div><br>
+
+    <div class="float-right">
+        <button type="button" class="btn btn-primary" [disabled]="!newComment" (click)="saveComment()">Post
+            Comment</button>
+    </div><br><br>
+
+    <button type="button" class="btn btn-primary" (click)="toggleComments()">Change
+        order</button>
+
+    <br><br>
+</div>
+
+
+
+<div *ngIf="allComments">
+
+    <div class="alert alert-primary" style="text-align: right;" role="alert" *ngFor="let comment of allComments">
+        {{comment.message}}
+    </div>
+
+</div>

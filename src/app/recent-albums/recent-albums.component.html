@@ -1,0 +1,18 @@
+<h3 style="padding: 30px 0 0 10px;">Recent albums:</h3>
+<!-- 
+<div class="float-end" style="margin: 0 30px 0 0;">
+    <a type="button" class="btn btn-outline-success" [routerLink]="['/create']">Create new Album</a>
+</div><br><br> -->
+
+<div class="row">
+    <div class="col-sm-3" *ngFor="let album of albums">
+        <div class="card" style="width: 18rem; height: 18rem;">
+            <img class="card-img-top" [src]="album.coverPhotoUrl" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Created by: {{album.createdBy}}</h5>
+
+                <a [routerLink]="['/album', album.id]" class="btn btn-primary">Go to Album</a>
+            </div>
+        </div>
+    </div>
+</div>
